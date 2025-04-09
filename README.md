@@ -23,41 +23,37 @@ Python
 
 
 # PROGRAM
+```python
 import numpy as np
 import math
-
 def calculate_coding_parameters(n):
-  p = []
-  lk = []
-
+p = []
+lk = []
   for i in range(n):
     pr = float(input(f"Enter the probability of sample values {i + 1}: "))
     p.append(pr)
     l = float(input(f"Enter the length of the sample values {i + 1}: "))
     lk.append(l)
-
   L = sum(p[k] * lk[k] for k in range(n))
   hs = sum(p[k] * math.log(1 / p[k], 2) for k in range(n))
   hs = round(hs, 3)
   eff = round(hs / L, 3)
   red = round(1 - eff, 3)
   var = round(sum(p[k] * (lk[k] - L)**2 for k in range(n)), 3)
-
-  return L, hs, eff, red, var
-
+return L, hs, eff, red, var
 n = int(input("Enter the number of Samples : "))
-
 L, hs, eff, red, var = calculate_coding_parameters(n)
-
 print(f"Average Codeword Length is : {L}")
 print(f"Entropy is : {hs}")
 print(f"Efficiency is : {eff * 100}%")
 print(f"Redudancy is : {red}")
 print(f"Variance is : {var}")
+```
 
 
 
 # OUTPUT
+
 ![image](https://github.com/user-attachments/assets/d294dd9a-8a39-4140-af83-ca68fd8c2d3c)
 
 
